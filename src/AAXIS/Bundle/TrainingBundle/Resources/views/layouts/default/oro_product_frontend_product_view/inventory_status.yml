@@ -1,0 +1,30 @@
+layout:
+  actions:
+    - '@setBlockTheme':
+          themes: '@AAXISTraining/layouts/default/oro_product_frontend_product_view/inventory_status.html.twig'
+    - '@add':
+        id: inventory_status_container
+        parentId: product_view_primary_container
+        blockType: container
+        options:
+          attr:
+            class: 'inventory_status'
+    - '@add':
+        id: inventory_status_text
+        parentId: inventory_status_container
+        blockType: text
+        options:
+          text: 'Inventory status '
+    - '@add':
+        id: inventory_status_value
+        parentId: inventory_status_container
+        siblingId: inventory_status_text
+        blockType: text
+        options:
+          text: '=data["product"].getInventoryStatus()'
+    - '@add':
+         id: style_inventory_status
+         parentId: head_style
+         blockType: style
+         options:
+           src: '@AAXISTraining/Resources/public/default/scss/components/inventory_status.scss'

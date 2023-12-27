@@ -1,0 +1,4 @@
+styles:
+  inputs:
+    - bundles/aaxistraining/default/scss/components/inventory_status.scss
+  output: css/styles.css

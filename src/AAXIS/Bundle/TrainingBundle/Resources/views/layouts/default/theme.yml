@@ -1,0 +1,4 @@
+parent: default
+label: Customizations theme
+description: Customizations on oro commerce
+groups: [ commerce ]

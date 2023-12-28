@@ -1,7 +1,10 @@
 {% block _inventory_status_container_widget %}
     <div{{ block('block_attributes') }}>
-        {{ block_widget(block) }}
+        <p>
+            Inventory status: <span class="inventory_status">{{ status }}</span>
+        </p>
     </div>
 {% endblock %}
+
 
 

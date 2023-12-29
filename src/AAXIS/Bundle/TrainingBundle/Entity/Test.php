@@ -3,42 +3,44 @@
 namespace AAXIS\Bundle\TrainingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
 
 /**
-* ORM Entity Document.
-*
-* @ORM\Entity()
-* @ORM\Table(name="oro_training_test")
-*/
+ * ORM Entity Document.
+ *
+ * @ORM\Entity()
+ * @ORM\Table(name="oro_training_test")
+ * @Config
+ */
 class Test
 {
     /**
-    * @ORM\Id
-    * @ORM\GeneratedValue
-    * @ORM\Column(type="integer")
-    */
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
     private $id;
 
     /**
-    * @ORM\Column(
-    *     name="name",
-    *     type="string",
-    *     length=250,
-    *     nullable=false
-    * )
-    */
+     * @ORM\Column(
+     *     name="name",
+     *     type="string",
+     *     length=250,
+     *     nullable=false
+     * )
+     */
     private ?string $name;
 
     /**
-    * @ORM\OneToOne(
-    *     targetEntity="AAXIS\Bundle\TrainingBundle\Entity\TestType"
-    * )
-    * @ORM\JoinColumn(
-    *     name="type_id",
-    *     nullable=true,
-    *     onDelete="SET NULL"
-    * )
-    */
+     * @ORM\OneToOne(
+     *     targetEntity="AAXIS\Bundle\TrainingBundle\Entity\TestType"
+     * )
+     * @ORM\JoinColumn(
+     *     name="type_id",
+     *     nullable=true,
+     *     onDelete="SET NULL"
+     * )
+     */
     private ?TestType $type;
 
     public function getId(): ?int

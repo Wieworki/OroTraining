@@ -1,21 +1,16 @@
 <?php
 
-namespace AAXIS\Bundle\TrainingBundle\Migrations\Schema;
+namespace AAXIS\Bundle\TrainingBundle\Migrations\Schema\v1_0;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\DBAL\Schema\SchemaException;
 use Oro\Bundle\EntityExtendBundle\EntityConfig\ExtendScope;
 use Oro\Bundle\EntityExtendBundle\Migration\Extension\ExtendExtension;
 use Oro\Bundle\EntityExtendBundle\Migration\Extension\ExtendExtensionAwareInterface;
-use Oro\Bundle\MigrationBundle\Migration\Installation;
+use Oro\Bundle\MigrationBundle\Migration\Migration;
 use Oro\Bundle\MigrationBundle\Migration\QueryBag;
 
-/**
- * Handles all migrations logic executed during installation.
- *
- * @SuppressWarnings(PHPMD.TooManyMethods)
- */
-class AAXISTrainingBundleInstaller implements Installation, ExtendExtensionAwareInterface
+class AAXISTrainingBundle implements Migration, ExtendExtensionAwareInterface
 {
     protected const ORO_TRAINING_TEST_TABLE_NAME = 'oro_training_test';
     protected const ORO_TRAINING_TEST_TYPE_TABLE_NAME = 'oro_training_test_type';
@@ -25,17 +20,6 @@ class AAXISTrainingBundleInstaller implements Installation, ExtendExtensionAware
      */
     protected ExtendExtension $extendExtension;
 
-    /**
-     * Returns the version to check if updates are needed
-     */
-    public function getMigrationVersion(): string
-    {
-        return 'v1_00';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function setExtendExtension(ExtendExtension $extendExtension): void
     {
         $this->extendExtension = $extendExtension;

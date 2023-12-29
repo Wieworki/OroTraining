@@ -3,12 +3,14 @@
 namespace AAXIS\Bundle\TrainingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
 
 /**
  * ORM Entity Document.
  *
  * @ORM\Entity()
  * @ORM\Table(name="oro_training_test_type")
+ * @Config
  */
 class TestType
 {

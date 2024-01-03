@@ -3,9 +3,9 @@ namespace AAXIS\Bundle\TrainingBundle\Migrations\Data\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Persistence\ObjectManager;
-use AAXIS\Bundle\TrainingBundle\Entity\TestType;
+use AAXIS\Bundle\TrainingBundle\Entity\TestTypeAttr;
 
-class LoadTestTypesData extends AbstractFixture
+class LoadTestTypesAttrData extends AbstractFixture
 {
     protected const TYPE_WEB = 'WEB';
     protected const TYPE_LOCAL = 'LOCAL';
@@ -16,9 +16,9 @@ class LoadTestTypesData extends AbstractFixture
      */
     public function load(ObjectManager $manager): void
     {
-        $typeWeb = new TestType(self::TYPE_WEB);
-        $typeLocal = new TestType(self::TYPE_LOCAL);
-        $typeDual = new TestType(self::TYPE_DUAL);
+        $typeWeb = new TestTypeAttr(self::TYPE_WEB);
+        $typeLocal = new TestTypeAttr(self::TYPE_LOCAL);
+        $typeDual = new TestTypeAttr(self::TYPE_DUAL);
 
         $manager->persist($typeWeb);
         $manager->persist($typeLocal);

@@ -12,7 +12,7 @@ use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
  * @ORM\Table(name="oro_training_test_type")
  * @Config
  */
-class TestType
+class TestTypeAttr
 {
     /**
      * @ORM\Id

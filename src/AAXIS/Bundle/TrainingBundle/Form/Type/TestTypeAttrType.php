@@ -2,8 +2,8 @@
 
 namespace AAXIS\Bundle\TrainingBundle\Form\Type;
 
-use AAXIS\Bundle\TrainingBundle\Entity\Test;
 use AAXIS\Bundle\TrainingBundle\Entity\TestTypeAttr;
+use Oro\Bundle\FormBundle\Form\Type\CollectionType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -12,27 +12,47 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * Form type for Test entity.
  */
-class TestType extends AbstractType
+class TestTypeAttrType extends AbstractType
 {
+    public const NAME = 'aaxis_training_test_type_attr';
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getParent(): ?string
+    {
+        return CollectionType::class;
+    }
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add(
                 'name',
                 TextType::class,
-                ['label' => 'aaxis.training.test.name.label', 'required' => true]
-            )
-            ->add(
-                'testtypeattr',
-                TestTypeAttrType::class,
-                ['label' => 'aaxis.training.test.testtypeattr.label', 'required' => false]
+                ['label' => 'aaxis.training.testtypeattr.name.label', 'required' => true]
             );
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Test::class
+            'data_class' => TestTypeAttr::class
         ]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName(): string
+    {
+        return $this->getBlockPrefix();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix(): string
+    {
+        return self::NAME;
     }
 }

@@ -1,0 +1,9 @@
+services:
+  _defaults:
+    public: true
+
+  AAXIS\Bundle\TrainingBundle\Controller\TestController:
+    calls:
+      - [ 'setContainer', [ '@Psr\Container\ContainerInterface' ] ]
+    tags:
+      - { name: container.service_subscriber }

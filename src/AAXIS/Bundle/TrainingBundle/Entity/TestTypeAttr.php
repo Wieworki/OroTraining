@@ -4,6 +4,7 @@ namespace AAXIS\Bundle\TrainingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
+use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\ConfigField;
 
 /**
  * ORM Entity Document.
@@ -28,6 +29,7 @@ class TestTypeAttr
      *     length=250,
      *     nullable=false
      * )
+     * @ConfigField()
      */
     private ?string $name;
 

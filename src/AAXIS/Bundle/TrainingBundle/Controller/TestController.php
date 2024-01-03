@@ -3,6 +3,7 @@
 namespace AAXIS\Bundle\TrainingBundle\Controller;
 
 use AAXIS\Bundle\TrainingBundle\Entity\Test;
+use AAXIS\Bundle\TrainingBundle\Form\Type\TestType;
 use Oro\Bundle\FormBundle\Model\UpdateHandlerFacade;
 use Oro\Bundle\SecurityBundle\Annotation\Acl;
 use Oro\Bundle\SecurityBundle\Annotation\AclAncestor;
@@ -98,7 +99,7 @@ class TestController extends AbstractController
     ): array|RedirectResponse {
         return $this->get(UpdateHandlerFacade::class)->update(
             $entity,
-            $this->createForm(Test::class, $entity),
+            $this->createForm(TestType::class, $entity),
             $message,
             $request,
             null

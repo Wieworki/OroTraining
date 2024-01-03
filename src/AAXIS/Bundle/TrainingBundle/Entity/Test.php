@@ -4,6 +4,7 @@ namespace AAXIS\Bundle\TrainingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
+use AAXIS\Bundle\TrainingBundle\Entity\TestTypeAttr;
 
 /**
  * ORM Entity Document.
@@ -33,7 +34,7 @@ class Test
 
     /**
      * @ORM\OneToOne(
-     *     targetEntity="AAXIS\Bundle\TrainingBundle\Entity\TestType"
+     *     targetEntity="AAXIS\Bundle\TrainingBundle\Entity\TestTypeAttr"
      * )
      * @ORM\JoinColumn(
      *     name="type_id",
@@ -41,7 +42,7 @@ class Test
      *     onDelete="SET NULL"
      * )
      */
-    private ?TestType $type;
+    private ?TestTypeAttr $type;
 
     public function getId(): ?int
     {
@@ -60,12 +61,12 @@ class Test
     return $this;
     }
 
-    public function getType(): ?TestType
+    public function getType(): ?TestTypeAttr
     {
     return $this->type;
     }
 
-    public function setType(?TestType $type): self
+    public function setType(?TestTypeAttr $type): self
     {
     $this->type = $type;
 

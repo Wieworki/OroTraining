@@ -1,0 +1,13 @@
+aaxis:
+  training:
+    test:
+      name: Name
+      testtypeattr: Test type
+      entity_label: 'test entity'
+      entity_plural_label: 'test entities'
+      general:
+        label: 'general label'
+    controller:
+      test:
+        saved:
+          message: Saved correctly

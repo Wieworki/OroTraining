@@ -1,0 +1,21 @@
+{% extends '@OroUI/actions/index.html.twig' %}
+{% import '@OroUI/macros.html.twig' as UI %}
+{% set gridName = 'aaxis-training-test-grid' %}
+{% set pageTitle = 'aaxis.training.test.entity_plural_label'|trans %}
+
+{% block navButtons %}
+    {% import '@OroUI/macros.html.twig' as UI %}
+
+    {% include '@OroImportExport/ImportExport/buttons_from_configuration.html.twig' with {
+        'alias': 'aaxis_training_test'
+    } %}
+
+    {% if is_granted('aaxis_training_test_create') %}
+        <div class="btn-group">
+            {{ UI.addButton({
+                'path': path('aaxis_training_test_create'),
+                'entity_label': 'aaxis.training.test.entity_label'|trans
+            }) }}
+        </div>
+    {% endif %}
+{% endblock %}

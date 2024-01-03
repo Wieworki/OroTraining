@@ -1,0 +1,16 @@
+datagrids:
+  aaxis-training-test:
+    properties:
+      id: ~
+      update_link:
+        type: url
+        route: aaxis_training_test_update
+        params:
+          - id
+    actions:
+      edit:
+        type: navigate
+        label: Edit
+        link: update_link
+        icon: edit
+

@@ -47,11 +47,6 @@
     {% endif %}
 {% endblock pageHeader %}
 
-{% block stats %}
-    <li>{{ 'oro.ui.created_at'|trans }}: {{ entity.createdAt ? entity.createdAt|oro_format_datetime : 'N/A' }}</li>
-    <li>{{ 'oro.ui.updated_at'|trans }}: {{ entity.updatedAt ? entity.updatedAt|oro_format_datetime : 'N/A' }}</li>
-{% endblock stats %}
-
 {% block content_data %}
     {% set dataBlocks = [
         {
@@ -59,10 +54,8 @@
             'subblocks': [
             {
                 'data' : [
-                form_row(form.subject),
-                form_row(form.description),
-                form_row(form.dueDate),
-                form_row(form.priority),
+                form_row(form.name),
+                form_row(form.type)
             ]
             }
         ]

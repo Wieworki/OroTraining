@@ -16,17 +16,7 @@ class TestType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder
-            ->add(
-                'name',
-                TextType::class,
-                ['label' => 'aaxis.training.test.name.label', 'required' => true]
-            )
-            ->add(
-                'testtypeattr',
-                TestTypeAttrType::class,
-                ['label' => 'aaxis.training.test.testtypeattr.label', 'required' => false]
-            );
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void

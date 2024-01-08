@@ -2,12 +2,16 @@ aaxis:
   training:
     test:
       name: Name
-      testtypeattr: Test type
+      test_type_attr: Test type
       entity_label: 'test entity'
       entity_plural_label: 'test entities'
       general:
         label: 'general label'
+      sections:
+        general: 'Data block'
     controller:
       test:
         saved:
           message: Saved correctly
+    widgets:
+      test_information: 'Test information'

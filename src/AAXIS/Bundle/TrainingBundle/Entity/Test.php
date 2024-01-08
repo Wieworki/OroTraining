@@ -15,6 +15,10 @@ use AAXIS\Bundle\TrainingBundle\Entity\TestTypeAttr;
  */
 class Test
 {
+    public function __construct() {
+        $this->name = null;
+        $this->type = null;
+    }
     /**
      * @ORM\Id
      * @ORM\GeneratedValue

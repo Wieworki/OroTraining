@@ -75,7 +75,7 @@ class TestController extends AbstractController
      * Edit Test form
      *
      * @Route("/update/{id}", name="update", requirements={"id"="\d+"})
-     * @Template
+     * @Template("@AAXISTraining/Test/update.html.twig")
      * @Acl(
      *      id="aaxis_training_test_update",
      *      type="entity",
@@ -104,6 +104,18 @@ class TestController extends AbstractController
             $request,
             null
         );
+    }
+
+    /**
+     * @Route("/info/{id}", name="info", requirements={"id"="\d+"})
+     * @Template
+     */
+    public function infoAction(Test $entity): array
+    {
+        return [
+            'test' => $entity,
+            'sourceEntity' => null,
+        ];
     }
 
     public static function getSubscribedServices(): array

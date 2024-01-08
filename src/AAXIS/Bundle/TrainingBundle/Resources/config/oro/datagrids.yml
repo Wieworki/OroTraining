@@ -1,5 +1,6 @@
 datagrids:
   aaxis-training-test-grid:
+    extended_entity_name: 'AAXIS\Bundle\TrainingBundle\Entity\Test'
     options:
       entity_pagination: true
     source:
@@ -8,15 +9,20 @@ datagrids:
         select:
           - DISTINCT test1.id
           - test1.name
-          - type.name
+          - test_type.name as type
         from:
           - { table: 'AAXIS\Bundle\TrainingBundle\Entity\Test', alias: test1 }
         join:
           left:
             - join: 'AAXIS\Bundle\TrainingBundle\Entity\TestTypeAttr'
-              alias: type
+              alias: test_type
               conditionType: WITH
-              condition: 'type.id = test1.type_id'
+              condition: 'test1.type = test_type.id'
+    columns:
+      name:
+        label: aaxis.training.test.name
+      type:
+        label: aaxis.training.test.test_type_attr
     properties:
       id: ~
       update_link:

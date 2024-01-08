@@ -1,0 +1,45 @@
+{% extends '@OroUI/actions/view.html.twig' %}
+{% import '@OroDataGrid/macros.html.twig' as dataGrid %}
+
+{% oro_title_set({params : {'%title%': entity|oro_format_name|default('N/A'|trans), '%entityName%': 'aaxis.training.test.entity_label'|trans} }) %}
+
+{% block pageHeader %}
+    {% set breadcrumbs = {
+        'entity':      entity,
+        'indexPath':   path('aaxis_training_test_index'),
+        'indexLabel': 'aaxis.training.test.entity_plural_label'|trans,
+        'entityTitle': entity|oro_format_name|default('N/A'|trans)
+    } %}
+    {{ parent() }}
+{% endblock pageHeader %}
+
+{% block content_data %}
+    {% import '@OroUI/macros.html.twig' as UI %}
+
+    {% set testInformationWidget %}
+        {{ oro_widget_render({
+            'widgetType': 'block',
+            'title': 'aaxis.training.widgets.test_information'|trans,
+            'url': path('aaxis_training_test_info', {id: entity.id})
+        }) }}
+    {% endset %}
+
+    {% set generalSectionBlocks = [
+        {'data' : [
+            testInformationWidget
+        ]}
+    ] %}
+
+    {% set dataBlocks = [
+        {
+            'title': 'aaxis.training.test.sections.general'|trans,
+            'priority': -200,
+            'subblocks': generalSectionBlocks
+        }
+    ] %}
+
+    {% set id = 'order-view' %}
+    {% set data = {'dataBlocks': dataBlocks} %}
+
+    {{ parent() }}
+{% endblock content_data %}
